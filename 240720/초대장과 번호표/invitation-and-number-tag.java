@@ -56,9 +56,11 @@ public class Main {
                 if(groups[it].size() == 1){
                     Iterator<Integer> iterator = groups[it].iterator();
                     int nextInviteNumber = iterator.next();
-                    visited[nextInviteNumber] = true;
-                    q.add(nextInviteNumber);
-                    count++;
+                    if(!visited[nextInviteNumber]) {
+                        visited[nextInviteNumber] = true;
+                        q.add(nextInviteNumber);
+                        count++;
+                    }
                 }
             }
         }
