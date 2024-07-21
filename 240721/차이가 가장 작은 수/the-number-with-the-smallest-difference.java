@@ -36,7 +36,10 @@ public class Main{
             }
             ts.add(number);
         }
-
-        System.out.println(diff);
+        if (diff == Integer.MAX_VALUE){
+            System.out.println(-1);
+        }else {
+            System.out.println(diff);
+        }
     }
 }
