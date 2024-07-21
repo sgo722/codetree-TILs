@@ -20,18 +20,18 @@ public class Main{
         int diff = Integer.MAX_VALUE;
         for(int i=1; i<n; i++){
             int number = Integer.parseInt(br.readLine());
-            Integer ceiling = ts.ceiling(number);
-            Integer floor = ts.floor(number);
+            Integer ceiling = ts.ceiling(number+m);
+            Integer floor = ts.floor(number-m);
             if(ceiling != null){
-                int CurDiff = ceiling - number;
-                if(CurDiff >= m) {
-                    diff = Math.min(diff, CurDiff);
+                int curDiff = ceiling - number;
+                if(curDiff >= m) {
+                    diff = Math.min(diff, curDiff);
                 }
             }
             if(floor != null){
-                int CurDiff = number - floor;
-                if(CurDiff >= m) {
-                    diff = Math.min(diff, CurDiff);
+                int curDiff = number - floor;
+                if(curDiff >= m) {
+                    diff = Math.min(diff, curDiff);
                 }
             }
             ts.add(number);
