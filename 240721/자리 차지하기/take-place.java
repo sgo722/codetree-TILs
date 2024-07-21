@@ -35,5 +35,7 @@ public class Main{
             ts.remove(floor);
             count++;
         }
+
+        System.out.println(count);
     }
 }
