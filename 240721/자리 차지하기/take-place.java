@@ -6,12 +6,13 @@ public class Main{
 
     static ArrayList<Integer> list;
     static int ans = 0;
+    static int n;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         list = new ArrayList<>();
-        ts = new TreeSet<>((o1, o2) -> o2 - o1);
+        ts = new TreeSet<>();
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         st = new StringTokenizer(br.readLine());
         for(int i=0; i<n; i++){
@@ -24,13 +25,16 @@ public class Main{
     }
 
     static void dfs(int index){
-        ans = Math.max(ans, index);
+        if(index == n){
+            return;
+        }
 
         int number = list.get(index);
         for(int i=number; i>=1; i--){
             if(!ts.contains(i)) {
                 ts.add(i);
                 dfs(index + 1);
+                ans = Math.max(ans, index+1);
                 break;
             }
         }
