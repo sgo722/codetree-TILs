@@ -20,16 +20,13 @@ public class Main {
         }
 
         maxSum -= pq.poll(); // n-1개가 된다.
-        BigDecimal ans = BigDecimal.valueOf(0);
+        double ans = maxSum / n;
         for(int i=1; i<n-1; i++){
-            BigDecimal curAvg = BigDecimal.valueOf(maxSum).divide(BigDecimal.valueOf(n-i),2, RoundingMode.CEILING);
-            int number = curAvg.compareTo(ans);
-            if(number == 1){
-                ans = curAvg;
-            }
+            double curAvg = maxSum / (n-i);
+            ans = Math.max(curAvg, ans);
             maxSum -= pq.poll();
         }
-        System.out.println(ans);
+        System.out.println(String.format("%.02f", ans));
 
     }
 }
