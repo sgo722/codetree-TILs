@@ -21,7 +21,11 @@ public class Main {
             pq.add(gap);
         }
 
-        System.out.println(pq.peek());
+        if(pq.size() == 0) {
+            System.out.println(-1);
+        }else{
+            System.out.println(pq.peek());
+        }
 
     }
 }
