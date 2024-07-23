@@ -20,7 +20,7 @@ public class Main {
         }
 
         maxSum -= pq.poll(); // n-1개가 된다.
-        double ans = maxSum / n;
+        double ans = maxSum / (n-1);
         for(int i=1; i<n-1; i++){
             double curAvg = maxSum / (n-i);
             ans = Math.max(curAvg, ans);
