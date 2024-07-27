@@ -9,7 +9,7 @@ public class Main{
         int n = sc.nextInt();
 
 
-        int ret = 1;
+        long ret = 1;
         for(int i=0; i<n; i++){
             int num = sc.nextInt();
             if(pq.size() != 3){
@@ -22,10 +22,9 @@ public class Main{
                 }
             }else if(pq.size() == 3){
                 if(pq.peek() > num){
-                    ret /= pq.peek();
+                    ret /= pq.poll();
                     pq.add(num);
                     ret *= num;
-                    pq.poll();
                 }
                 System.out.println(ret);
             }
