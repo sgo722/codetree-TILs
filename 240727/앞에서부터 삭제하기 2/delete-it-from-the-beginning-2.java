@@ -5,35 +5,33 @@ public class Main {
     static ArrayList<Integer> list;
     static ArrayList<Integer> sum;
     static PriorityQueue<Integer> pq;
-    static double ans;
+    static double maxAvg = 0;
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
         pq = new PriorityQueue();
         list = new ArrayList<>();
         sum = new ArrayList<>();
         int n = sc.nextInt();
+        int sumVal = 0;
 
         for(int i=0; i<n; i++){
             int number = sc.nextInt();
             list.add(number);
-            pq.add(number);
         }
 
-        sum.add(list.get(0));
-        for(int i=1; i<n; i++){
-            sum.add(sum.get(i-1) + list.get(i));
-        }
-        ans = 0;
+        pq.add(list.get(n-1));
+        sumVal += list.get(n-1);
 
-        for(int i=0; i<n-2; i++){
-            int ret = sum.get(n - 1) - sum.get(i);
-            pq.remove(list.get(i));
-            Integer peek = pq.peek();
-            ret -= peek;
-            double avg = (double) ret / (n-1-i-1);
-            ans = Math.max(ans, avg);
-        }
+        for(int i=n-2; i>=1; i--){
+            pq.add(list.get(i));
+            sumVal += list.get(i);
 
-        System.out.printf("%.02f",ans);
+            double avg = (double)(sumVal - pq.peek()) / (n-1-i);
+
+            if(maxAvg < avg){
+                maxAvg = avg;
+            }
+        }
+        System.out.printf("%.2f", maxAvg);
     }
 }
