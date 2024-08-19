@@ -42,7 +42,7 @@ public class Main{
         int q = Integer.parseInt(st.nextToken());
 
         points = new Point[n+1];
-        squares = new Square[n+1];
+        squares = new Square[q+1];
 
 
         for(int i=0; i<n; i++){
