@@ -33,11 +33,11 @@ public class Main{
 
             Integer ceiling = treeSet.ceiling(s);
             if(ceiling == null){
-                ceiling = treeSet.last();
+                ceiling = treeSet.first();
             }
             Integer floor = treeSet.floor(e);
             if(floor == null){
-                floor = treeSet.first();
+                floor = treeSet.last();
             }
             Integer start = treeMap.get(ceiling);
             Integer end = treeMap.get(floor);
